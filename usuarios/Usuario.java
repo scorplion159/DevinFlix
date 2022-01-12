@@ -10,7 +10,14 @@ public class Usuario {
     Data date;
     enum_genero generos_preferidos;
     String sugestoes;
+    int conta_indicacoes;
     
+    public int getConta_indicacoes() {
+        return conta_indicacoes;
+    }
+    public void setConta_indicacoes(int conta_indicacoes) {
+        this.conta_indicacoes = conta_indicacoes;
+    }
     public String getNome() {
         return nome;
     }

@@ -1,4 +1,5 @@
 package filmes;
+import main.*;
 
 public class Filmes{
     String nome;
@@ -30,9 +31,30 @@ public class Filmes{
     String sinopse;
     enum_genero genero;
     enum_curtidas opcao_de_curtida;
+    private int curtidas;
+    public int getCurtidas() {
+        return curtidas;
+    }
+    public void setCurtidas(int curtidas) {
+        this.curtidas = curtidas;
+    }
+    public int getDescurtidas() {
+        return descurtidas;
+    }
+    public void setDescurtidas(int descurtidas) {
+        this.descurtidas = descurtidas;
+    }
+    private int descurtidas;
 
+    public Filmes(int curtidas, int descurtidas) {
+        this.curtidas = curtidas;
+        this.descurtidas = descurtidas;
+    }
     public Filmes() {
     }
-
     
 }
+    
+   
+
+    
