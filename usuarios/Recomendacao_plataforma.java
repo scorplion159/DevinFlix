@@ -5,10 +5,10 @@ import java.util.Date;
 import usuarios.*;
 
 public class Recomendacao_plataforma {
-    String titulo;
-    String usuario;
-    String data_da_recomendacao;
-    boolean recomendou;
+    private String titulo;
+    private String usuario;
+    private String data_da_recomendacao;
+    private boolean recomendou;
     public boolean isRecomendou() {
         return recomendou;
     }
@@ -23,6 +23,8 @@ public class Recomendacao_plataforma {
         this.usuario = usuario;
         this.data_da_recomendacao = data_legivel2;
         this.recomendou=recomendou;
+        
+        
     }
         
         
@@ -51,10 +53,9 @@ public class Recomendacao_plataforma {
         this.usuario = usuario;
     }
 
-    public void verifica_indicacao(String ususario, int contador){
-        if(contador>=1){System.out.println("voce ja fez uma indidcação");
-            
-        }
+    public void verifica_indicacao(String ususario ){
+        
+        
     }
 
     public void verifica_dias(int data_da_recomendacao, boolean recomendou){

@@ -3,6 +3,7 @@ import filmes.*;
 import usuarios.*;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -150,12 +151,108 @@ public class main {public static void main(String[] args) {
         int resposta = entrada_dados.nextInt();
         if (resposta==3){System.out.println("conectou");
             
-          System.out.println ("digite o nome do fiome que deseja indicar");
-          
+          //System.out.println ("digite o nome do fiome que deseja indicar");
+          //String x = entrada_dados.nextLine();
+          String x = entrada_dados.nextLine();
             if (selecao_usuario.equalsIgnoreCase(usuario1.getNome())){
-                usuario1.setConta_indicacoes(usuario1.getConta_indicacoes()+1);}
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario1.setConta_indicacoes(usuario1.getConta_indicacoes()+1);
+
+                if(usuario1.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("s");
+                String dia_do_ano=format.format(data);
+                System.out.println(dia_do_ano);
+                int data_convertida= Integer.parseInt(dia_do_ano);
+                
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
             if (selecao_usuario.equalsIgnoreCase(usuario2.getNome())){
-                usuario2.setConta_indicacoes(usuario2.getConta_indicacoes()+1);}
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario2.setConta_indicacoes(usuario2.getConta_indicacoes()+1);
+
+                if(usuario2.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
+
+            if (selecao_usuario.equalsIgnoreCase(usuario3.getNome())){
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario3.setConta_indicacoes(usuario3.getConta_indicacoes()+1);
+
+                if(usuario3.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
+
+            if (selecao_usuario.equalsIgnoreCase(usuario4.getNome())){
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario4.setConta_indicacoes(usuario4.getConta_indicacoes()+1);
+
+                if(usuario4.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
+
+            if (selecao_usuario.equalsIgnoreCase(usuario5.getNome())){
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario5.setConta_indicacoes(usuario5.getConta_indicacoes()+1);
+
+                if(usuario5.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
+
+            if (selecao_usuario.equalsIgnoreCase(usuario6.getNome())){
+                System.out.println ("digite o nome do fiome que deseja indicar");
+                 x = entrada_dados.nextLine();
+                while (x !=""){
+                usuario2.setConta_indicacoes(usuario6.getConta_indicacoes()+1);
+
+                if(usuario6.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
+                Date data = new Date();
+                System.out.println(data);
+             }
+
+                x="";
+
+                }
+            }
             
             
 

@@ -2,7 +2,11 @@ package filmes;
 import main.*;
 
 public class Filmes{
-    String nome;
+    private String nome;
+    private String sinopse;
+    private enum_genero genero;
+    private enum_curtidas opcao_de_curtida;
+    private int curtidas;
     
     public String getNome() {
         return nome;
@@ -28,10 +32,7 @@ public class Filmes{
     public void setOpcao_de_curtida(enum_curtidas opcao_de_curtida) {
         this.opcao_de_curtida = opcao_de_curtida;
     }
-    String sinopse;
-    enum_genero genero;
-    enum_curtidas opcao_de_curtida;
-    private int curtidas;
+    
     public int getCurtidas() {
         return curtidas;
     }
