@@ -2,14 +2,28 @@ package main;
 import filmes.*;
 import usuarios.*;
 
+import java.io.ObjectInputStream.GetField;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.Scanner;
 
 
 
-public class main {public static void main(String[] args) {
+public class main {
+    public void checagenero(int filme, Filmes filmes){
+        if (filme ==1){
+           if( filmes.getGenero().equals(enum_genero.ACAO)){
+              filmes.setACAO_qtd(filmes.getACAO_qtd()+1);
+               
+           }
+        }
+
+        
+    }
+    public static void main(String[] args) {
     Usuario usuario1 = new Usuario();
     usuario1.setNome("Leonardo");
     usuario1.setDate(27,10,1996);
@@ -42,33 +56,46 @@ public class main {public static void main(String[] args) {
     usuario6.setEndereco("Rua z");
 
     //FILMES//
-
-    Filmes filme1 = new Filmes();
-    filme1.setNome("Homem Aranha");
-    filme1.setGenero(enum_genero.DESENHO);
+    ArrayList<String> colecao_de_filmesArrayList= new ArrayList();
+    Filmes filme0 = new Filmes( "django", "", enum_genero.CLASSICOS);
+    colecao_de_filmesArrayList.add(filme0.toString());
     
 
-    Filmes filme2 = new Filmes();
-    filme2.setNome("A viagem de chihiro");
-    filme2.setGenero(enum_genero.DESENHO);
+    Filmes filme1 = new Filmes("Homem Aranha", "", enum_genero.DESENHO);
+    colecao_de_filmesArrayList.add(filme1.toString());
+    //filme1.setNome("Homem Aranha");
+    //filme1.setGenero(enum_genero.DESENHO);
+    
 
-    Filmes filme3 = new Filmes();
-    filme3.setNome("Medalha de honra");
-    filme3.setGenero(enum_genero.ACAO);
+    Filmes filme2 = new Filmes("A viagem de chihiro","",enum_genero.DESENHO);
+    colecao_de_filmesArrayList.add(filme2.toString());
+    //filme2.setNome("A viagem de chihiro");
+    //filme2.setGenero(enum_genero.DESENHO);
 
-    Filmes filme4 = new Filmes();
-    filme4.setNome("Berseker");
-    filme4.setGenero(enum_genero.ANIME);
+    Filmes filme3 = new Filmes("Medalha de ouro","",enum_genero.ACAO);
+    colecao_de_filmesArrayList.add(filme3.toString());
+    //filme3.setNome("Medalha de honra");
+    //filme3.setGenero(enum_genero.ACAO);
 
-    Filmes filme5 = new Filmes();
-    filme5.setNome("Se beber não case");
-    filme5.setGenero(enum_genero.COMEDIA);
+    Filmes filme4 = new Filmes("Berseker,","",enum_genero.ANIME);
+    colecao_de_filmesArrayList.add(filme4.toString());
+    //filme4.setNome("Berseker");
+    //filme4.setGenero(enum_genero.ANIME);
 
-    Filmes filme6 = new Filmes();
-    filme6.setNome("O poderoso chefão");
-    filme6.setGenero(enum_genero.CLASSICOS);
+    Filmes filme5 = new Filmes("Se beber não case","",enum_genero.COMEDIA);
+    colecao_de_filmesArrayList.add(filme5.toString());
+    //filme5.setNome("Se beber não case");
+    //filme5.setGenero(enum_genero.COMEDIA);
+
+    Filmes filme6 = new Filmes("O pderoso chefão","",enum_genero.CLASSICOS);
+    colecao_de_filmesArrayList.add(filme6.toString());
+    //filme6.setNome("O poderoso chefão");
+    //filme6.setGenero(enum_genero.CLASSICOS);
 
     ///COMANDOS DOS SISTEMA//
+    for(String x : colecao_de_filmesArrayList){
+        System.out.println(x);
+    }
     Scanner entrada_dados = new Scanner(System.in);
 
     
@@ -144,20 +171,62 @@ public class main {public static void main(String[] args) {
     ////SEGUNDO PAINEL DE CONTROLE////
     boolean permissao_do_looping= true;
     while (permissao_do_looping==true){
+        ArrayList<String>filmes_indicados_catalogoArrayList=new ArrayList();
+        filmes_indicados_catalogoArrayList.add("primeira lista");
     
         System.out.println("Se deseja ver o catalogo de filmes digite: 1.");
         System.out.println("Se deseja indicar um filme para outro usuário, digite 2.");
         System.out.println("Caso deseje indicar um filme que queira ver em nossa plataforma, digite 3");
+        System.out.println("Verificar os filmes mais curtidos, digite 4");
         int resposta = entrada_dados.nextInt();
-        if (resposta==3){System.out.println("conectou");
+
+        if (resposta==6){System.out.println("conectou");
+            for(String z : filmes_indicados_catalogoArrayList){
+                System.out.println(z);
+            };
+        }
+
+        if (resposta==5){for(String x : colecao_de_filmesArrayList){
+            System.out.println(x);
+        }
             
+        }
+
+
+        if (resposta==4){   System.out.println(filme1.getNome() + "Número de curtidas:");
+                            System.out.println(filme1.getCurtidas());
+                            System.out.println("////////////////");
+                            System.out.println(filme2.getNome());
+                            System.out.println(filme2.getCurtidas());
+                            System.out.println("////////////////");
+                            System.out.println(filme3.getNome());
+                            System.out.println(filme3.getCurtidas());
+                            System.out.println("////////////////");
+                            System.out.println(filme4.getNome());
+                            System.out.println(filme4.getCurtidas());
+                            System.out.println("////////////////");
+                            System.out.println(filme5.getNome());
+                            System.out.println(filme5.getCurtidas());
+                            System.out.println("////////////////");
+                            System.out.println(filme6.getNome());
+                            System.out.println(filme6.getCurtidas());
+                            
+                        
+                        }
+        if (resposta==3){System.out.println("conectou");
+            //ArrayList<String>filmes_indicados_catalogo=new ArrayList();
           //System.out.println ("digite o nome do fiome que deseja indicar");
           //String x = entrada_dados.nextLine();
           String x = entrada_dados.nextLine();
             if (selecao_usuario.equalsIgnoreCase(usuario1.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
+                
                  x = entrada_dados.nextLine();
-                while (x !=""){
+                 Filmes_indicados indicação_A = new Filmes_indicados(usuario1, x);
+                 filmes_indicados_catalogoArrayList.add(indicação_A.toString());
+                 filmes_indicados_catalogoArrayList.add(x);
+                 filmes_indicados_catalogoArrayList.add("conectado");
+                while (x != ""){
                 usuario1.setConta_indicacoes(usuario1.getConta_indicacoes()+1);
 
                 if(usuario1.getConta_indicacoes()>1){System.out.println("voce ja fez sua indidcação");
@@ -177,6 +246,7 @@ public class main {public static void main(String[] args) {
             if (selecao_usuario.equalsIgnoreCase(usuario2.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
                  x = entrada_dados.nextLine();
+                 filmes_indicados_catalogoArrayList.add(x);
                 while (x !=""){
                 usuario2.setConta_indicacoes(usuario2.getConta_indicacoes()+1);
 
@@ -193,6 +263,7 @@ public class main {public static void main(String[] args) {
             if (selecao_usuario.equalsIgnoreCase(usuario3.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
                  x = entrada_dados.nextLine();
+                 filmes_indicados_catalogoArrayList.add(x);
                 while (x !=""){
                 usuario3.setConta_indicacoes(usuario3.getConta_indicacoes()+1);
 
@@ -209,6 +280,7 @@ public class main {public static void main(String[] args) {
             if (selecao_usuario.equalsIgnoreCase(usuario4.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
                  x = entrada_dados.nextLine();
+                 filmes_indicados_catalogoArrayList.add(x);
                 while (x !=""){
                 usuario4.setConta_indicacoes(usuario4.getConta_indicacoes()+1);
 
@@ -225,6 +297,7 @@ public class main {public static void main(String[] args) {
             if (selecao_usuario.equalsIgnoreCase(usuario5.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
                  x = entrada_dados.nextLine();
+                 filmes_indicados_catalogoArrayList.add(x);
                 while (x !=""){
                 usuario5.setConta_indicacoes(usuario5.getConta_indicacoes()+1);
 
@@ -241,6 +314,7 @@ public class main {public static void main(String[] args) {
             if (selecao_usuario.equalsIgnoreCase(usuario6.getNome())){
                 System.out.println ("digite o nome do fiome que deseja indicar");
                  x = entrada_dados.nextLine();
+                 filmes_indicados_catalogoArrayList.add(x);
                 while (x !=""){
                 usuario2.setConta_indicacoes(usuario6.getConta_indicacoes()+1);
 
@@ -327,6 +401,10 @@ public class main {public static void main(String[] args) {
         
             System.out.println("Caso deseje assitir um filme, digite o código deste:");
             int filme_selecionado = entrada_dados.nextInt();
+            if (selecao_usuario.equalsIgnoreCase(usuario1.getNome())){
+                Curtidas_do_usuario nova_curtida = new Curtidas_do_usuario(selecao_usuario,filme_selecionado);
+                
+            }
             System.out.println("Voce deseja deixar sua opinião sobre o filme selecionado? Pressione 1 para curtir e 2 para descurtir");
             int seleciona_curtida = entrada_dados.nextInt();
             
@@ -335,37 +413,49 @@ public class main {public static void main(String[] args) {
                     filme1.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme1.setCurtidas(filme1.getCurtidas()+1);
                     System.out.println("O número de curtidas do filme é :" + filme1.getCurtidas());
-                    
                     System.out.println("Olá  " + selecao_usuario + " voce curtiu " + filme1.getNome());
+                    main a =new main();
+                    a.checagenero(filme_selecionado,filme1 );
+                    
                 }
                 if (filme_selecionado ==2 && seleciona_curtida==1) {
                     filme2.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme2.setCurtidas(filme2.getCurtidas()+1);
                     System.out.println("Olá  " + selecao_usuario + " voce curtiu " + filme2.getNome());
+                    main b =new main();
+                    b.checagenero(filme_selecionado,filme2 );
                 }
                 if (filme_selecionado ==3 && seleciona_curtida==1) {
                     filme3.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme3.setCurtidas(filme3.getCurtidas()+1);
                     System.out.println("O número de curtidas do filme é :" + filme3.getCurtidas());
                     System.out.println("Olá " + selecao_usuario + " voce curtiu " + filme3.getNome());
+                    main c =new main();
+                    c.checagenero(filme_selecionado,filme3 );
                 }
                 if (filme_selecionado ==4 && seleciona_curtida==1) {
                     filme4.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme4.setCurtidas(filme4.getCurtidas()+1);
                     System.out.println("O número de curtidas do filme é :" + filme4.getCurtidas());
                     System.out.println("Olá " + selecao_usuario + " voce curtiu " + filme4.getNome());
+                    main d =new main();
+                    d.checagenero(filme_selecionado,filme4 );
                 }
                 if(filme_selecionado==5 && seleciona_curtida==1){
                     filme5.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme5.setCurtidas(filme5.getCurtidas()+1);
                     System.out.println("O número de curtidas do filme é :" + filme5.getCurtidas());
                     System.out.println("Olá  " + selecao_usuario + " voce curtiu " + filme5.getNome());
+                    main e =new main();
+                    e.checagenero(filme_selecionado,filme5 );
                 }
                 if (filme_selecionado==6 && seleciona_curtida==1){
                     filme6.setOpcao_de_curtida(enum_curtidas.CURTIDA);
                     filme6.setCurtidas(filme6.getCurtidas()+1);
                     System.out.println("O número de curtidas do filme é :" + filme6.getCurtidas());
                     System.out.println("Olá  " + selecao_usuario + " voce curtiu " + filme6.getNome());
+                    main f =new main();
+                    f.checagenero(filme_selecionado,filme6 );
 
                 }
             
@@ -422,6 +512,11 @@ public class main {public static void main(String[] args) {
     
     
 }
+}
+
+@Override
+public String toString() {
+    return "main []";
 }
 }
     
